@@ -13,7 +13,7 @@ import java.sql.DriverManager;
  * @author Felipe
  */
 public class Conexion {
-    Connection con;
+    Connection con; 
     String url ="jdbc:mysql://localhost:3306/bd_ventas";
     String user="root";
     String pass="rootroot";
