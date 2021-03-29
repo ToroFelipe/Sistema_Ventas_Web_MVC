@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Felipe
  */
 public class Validar extends HttpServlet {
-
+    
     EmpleadoDAO edao = new EmpleadoDAO();
     Empleado em = new Empleado();
 
@@ -79,17 +79,17 @@ public class Validar extends HttpServlet {
         if (accion.equalsIgnoreCase("Ingresar")) {
             String user = request.getParameter("txtuser");
             String pass = request.getParameter("txtpass");
-            em=edao.validar(user, pass);
-            if(em.getUser()!=null) {
+            em = edao.validar(user, pass);
+            if (em.getUser() != null) {
                 request.getRequestDispatcher("Controlador?accion=Principal").forward(request, response);
                 
-            }else{
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         } else {
-
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
-        processRequest(request, response);
+       /* processRequest(request, response);*/
     }
 
     /**
