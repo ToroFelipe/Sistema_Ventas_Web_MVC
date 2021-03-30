@@ -58,7 +58,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <form class=\"form sign\" action=\"Validar\" method=\"POST\">\n");
       out.write("                        <div class=\"form-group  text-center\">\n");
       out.write("                            <h3>Login</h3>\n");
-      out.write("                            <img src=\"mg/logo.jpg\" alt=\"70\" width=\"170\"/>\n");
+      out.write("                            <img src=\"mg/logo.jpg\" alt=\"\" heigth=\"100\" width=\"100\"/>\n");
+      out.write("                            <label>Bienvenido al sistema</label>\n");
       out.write("                            <label>Bienvenido al sistema</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"form-group\">\n");
@@ -69,10 +70,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label>Password: </label>\n");
       out.write("                            <input type=\"password\" name=\"txtpass\" class=\"form-control\">\n");
       out.write("                        </div>\n");
-      out.write("                        <div class=\"d-grid gap-2\">\n");
-      out.write("                            <input type=\"submit\" name=\"accion\" value=\"Ingresar\" class=\"btn btn-primary\" type=\"button\">\n");
       out.write("\n");
-      out.write("                        </div>\n");
+      out.write("                        <input type=\"submit\" name=\"accion\" value=\"Ingresar\" class=\"btn btn-primary\" type=\"button\">\n");
+      out.write("\n");
+      out.write("\n");
       out.write("                    </form>\n");
       out.write("                </div>\n");
       out.write("\n");
@@ -81,8 +82,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\n");
       out.write("\n");
       out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf\" crossorigin=\"anonymous\"></script>\n");
-      out.write("        <script src=\"https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js\" integrity=\"sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG\" crossorigin=\"anonymous\"></script>\n");
-      out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js\" integrity=\"sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc\" crossorigin=\"anonymous\"></script>\n");
+      out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
