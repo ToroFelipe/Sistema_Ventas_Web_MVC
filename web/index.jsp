@@ -30,10 +30,10 @@
                             <label>Password: </label>
                             <input type="password" name="txtpass" class="form-control">
                         </div>
-                        <div class="d-grid gap-2">
+                        
                             <input type="submit" name="accion" value="Ingresar" class="btn btn-primary" type="button">
 
-                        </div>
+                        
                     </form>
                 </div>
 

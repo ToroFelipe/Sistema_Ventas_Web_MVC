@@ -13,18 +13,20 @@ import java.sql.DriverManager;
  * @author Felipe
  */
 public class Conexion {
-    Connection con; 
-    String url ="jdbc:mysql://localhost:3306/bd_ventas";
-    String user="root";
-    String pass="rootroot";
-    public Connection Conexion(){
+
+    Connection con;
+    private static String url = "jdbc:mysql://localhost:3306/bd_ventas?serverTimezone=UTC&useSSL=false";
+   private static String user = "root";
+    private static String pass = "rootroot";
+
+    public Connection Conexion() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection(url,user,pass);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(url, user, pass);
         } catch (Exception e) {
+            System.out.println("error de conexion " + e.getMessage());
         }
-            
-            
-    return con;
+
+        return con;
     }
 }
