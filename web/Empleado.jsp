@@ -16,7 +16,7 @@
         <div class="d-flex">
             <div class="card col-sm-4">
                 <div class="card-body">
-                    <form>
+                    <form action="controlador?menu=Empleado" method="POST">
                         <div class="form-group">
                             <label>Dni</label>
                             <input type="text" name="txtDni" class="form-control">
@@ -48,7 +48,7 @@
             <div class="col-sm-8">
                 <table class="table table-hover">
                     <thead>
-                        <tr>
+                        <tr><th>ID</th>
                             <th>DNI</th>
                             <th>NOMBRES</th>
                             <th>TELEFONO</th>
