@@ -40,7 +40,7 @@ public class Validar extends HttpServlet {
             em = edao.validar(user, pass);
             if (em.getUser() != null) {
                  request.setAttribute("usuario", em);
-                request.getRequestDispatcher("Controlador?accion=Principal").forward(request, response);
+                request.getRequestDispatcher("Controlador?menu=Principal").forward(request, response);
                 
             } else {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -82,7 +82,7 @@ public class Validar extends HttpServlet {
             em = edao.validar(user, pass);
             if (em.getUser() != null) {
                 request.setAttribute("usuario", em);
-                request.getRequestDispatcher("Controlador?accion=Principal").forward(request, response);
+                request.getRequestDispatcher("Controlador?menu=Principal").forward(request, response);
                 
             } else {
                 request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -4,6 +4,7 @@
     Author     : Felipe
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,16 +24,16 @@
                             <a style="margin-left:10px; border:none" class="btn btn-outline-light" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?accion=Producto" target="myFrame">producto</a>
+                            <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?menu=Producto" target="myFrame">producto</a>
                         </li>
                         <li class="nav-item">
-                            <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?accion=Empleado" target="myFrame">Empleado</a>
+                            <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
                         </li>
                         <li class="nav-item">
-                            <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?accion=Clientes" target="myFrame">Clientes</a>
+                            <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?menu=Clientes" target="myFrame">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?accion=NuevaVenta" target="myFrame">Nueva Venta</a>
+                            <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?menu=NuevaVenta" target="myFrame">Nueva Venta</a>
                         </li>
 
                     </ul>
@@ -58,7 +59,7 @@
             </div>
         </nav>
         <div class="m-4" style="height:550px">
-            <iframe name="myFrame" style="eight:100% ; width:100%">
+            <iframe name="myFrame" style="height:100% ; width:100%">
 
             </iframe>
         </div>
