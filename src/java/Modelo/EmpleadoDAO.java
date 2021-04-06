@@ -69,7 +69,7 @@ public class EmpleadoDAO {
     }
 
     public int agregar(Empleado em) {
-        String sql = "insert into empleado(Dni,Nombres,Telefono,Estado,User)values(?,?,?,?,?)";
+        String sql = "insert into empleado(Dni, Nombres, Telefono, Estado, User)values(?,?,?,?,?)";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -87,14 +87,17 @@ public class EmpleadoDAO {
 
     public Empleado listarId(int id) {
         Empleado emp = new Empleado();
-        String sql = "select * from empleado where idEmleado=" + id;
+        String sql = "select * from empleado where IdEmpleado=" + id;
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 emp.setDni(rs.getString(2));
-
+                emp.setNom(rs.getString(3));
+                emp.setTel(rs.getString(4));
+                emp.setEstado(rs.getString(5));
+                emp.setUser(rs.getString(6));
             }
         } catch (Exception e) {
         }
@@ -103,7 +106,7 @@ public class EmpleadoDAO {
     }
 
     public int actualizar(Empleado em) {
-        String sql = "update empleado set Dni=?,Nombres=?,Telefono=?,Estado=?,User=?) where idEmpleado=?";
+        String sql = "update empleado set Dni=?,Nombres=?,Telefono=?,Estado=?,User=? where IdEmpleado=?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);

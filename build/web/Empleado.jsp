@@ -16,31 +16,32 @@
         <div class="d-flex">
             <div class="card col-sm-4">
                 <div class="card-body">
-                    <form action="controlador?menu=Empleado" method="POST">
+                    <form action="Controlador?menu=Empleado" method="POST">
                         <div class="form-group">
                             <label>Dni</label>
-                            <input type="text" name="txtDni" class="form-control">
+                            <input type="text" value="${empleado.getDni()}"  name="txtDni" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label>Nombres</label>
-                            <input type="text" name="txtNombres" class="form-control">
+                            <input type="text" value="${empleado.getNom()}" name="txtNombres" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Telefono</label>
-                            <input type="text" name="txtTelefono" class="form-control">
+                            <input type="text" value="${empleado.getTel()}" name="txtTelefono" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Estado</label>
-                            <input type="text" name="txtEstado" class="form-control">
+                            <input type="text" value="${empleado.getEstado()}" name="txtEstado" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Usuario</label>
-                            <input type="text" name="txtUsuario" class="form-control">
-
-
+                            <input type="text" value="${empleado.getUser()}" name="txtUsuario" class="form-control">
                         </div>
-                        <input type="submit" name="accion" value="Agregar" class="btn btn-info">
+
+
+                        <input type="submit" name="accion" value="Agregar"  class="btn btn-info">
+                        <input type="submit" name="accion" value="Actualizar"  class="btn btn-success">
                     </form>
 
                 </div>
@@ -48,7 +49,8 @@
             <div class="col-sm-8">
                 <table class="table table-hover">
                     <thead>
-                        <tr><th>ID</th>
+                        <tr>
+                            <th>ID</th>
                             <th>DNI</th>
                             <th>NOMBRES</th>
                             <th>TELEFONO</th>
@@ -58,22 +60,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="em" items="${empleados}">
-                        <tr>
-                            <td>${em.getId()}</td>
-                            <td>${em.getDni()}</td>
-                            <td>${em.getNom()}</td>
-                            <td>${em.getTel()}</td>
-                            <td>${em.getEstado()}</td>
-                            <td>${em.getUser()}</td>
-                            <td>
-                                <a>Editar</a> 
-                                <a>Delete</a>
+                        <c:forEach var="em" items="${empleados}">
+                            <tr>
+                                <td>${em.getId()}</td>
+                                <td>${em.getDni()}</td>
+                                <td>${em.getNom()}</td>
+                                <td>${em.getTel()}</td>
+                                <td>${em.getEstado()}</td>
+                                <td>${em.getUser()}</td>
+                                <td>
+                                    <a class="btn btn-warning" href="Controlador?menu=Empleado&accion=Editar&id=${em.getId()}">Editar</a> 
+                                    <a class="btn btn-danger" href="Controlador?menu=Empleado&accion=Delete&id=${em.getId()}">Delete</a>
 
 
-                            </td>
-                        </tr> 
-                    </c:forEach>
+                                </td>
+                            </tr> 
+                        </c:forEach>
                     </tbody>
                 </table>
 
