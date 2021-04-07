@@ -16,30 +16,25 @@
         <div class="d-flex">
             <div class="card col-sm-4">
                 <div class="card-body">
-                    <form action="Controlador?menu=Empleado" method="POST">
+                    <form action="Controlador?menu=Cliente" method="POST">
                         <div class="form-group">
                             <label>Dni</label>
-                            <input type="text" value="${empleado.getDni()}"  name="txtDni" class="form-control">
+                            <input type="text" value="${cliente.getDniCli()}"  name="txtDniCli" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label>Nombres</label>
-                            <input type="text" value="${empleado.getNom()}" name="txtNombres" class="form-control">
+                            <input type="text" value="${cliente.getNomCli()}" name="txtNombresCli" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Telefono</label>
-                            <input type="text" value="${empleado.getTel()}" name="txtTelefono" class="form-control">
+                            <label>Direccion</label>
+                            <input type="text" value="${cliente.getDirCli()}" name="txtDirCli" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Estado</label>
-                            <input type="text" value="${empleado.getEstado()}" name="txtEstado" class="form-control">
+                            <input type="text" value="${cliente.getEstadoCli()}" name="txtEstadoCli" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label>Usuario</label>
-                            <input type="text" value="${empleado.getUser()}" name="txtUsuario" class="form-control">
-                        </div>
-
-
+                        
                         <input type="submit" name="accion" value="Agregar"  class="btn btn-info">
                         <input type="submit" name="accion" value="Actualizar"  class="btn btn-success">
                     </form>
@@ -53,24 +48,22 @@
                             <th>ID</th>
                             <th>DNI</th>
                             <th>NOMBRES</th>
-                            <th>TELEFONO</th>
+                            <th>DIRECCION</th>
                             <th>ESTADO</th>
-                            <th>USER</th>
                             <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="em" items="${empleados}">
+                        <c:forEach var="cl" items="${clientes}">
                             <tr>
-                                <td>${em.getId()}</td>
-                                <td>${em.getDni()}</td>
-                                <td>${em.getNom()}</td>
-                                <td>${em.getTel()}</td>
-                                <td>${em.getEstado()}</td>
-                                <td>${em.getUser()}</td>
+                                <td>${cl.getIdCli()}</td>
+                                <td>${cl.getDniCli()}</td>
+                                <td>${cl.getNomCli()}</td>
+                                <td>${cl.getDirCli()}</td>
+                                <td>${cl.getEstadoCli()}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="Controlador?menu=Empleado&accion=Editar&id=${em.getId()}">Editar</a> 
-                                    <a class="btn btn-danger" href="Controlador?menu=Empleado&accion=Delete&id=${em.getId()}">Delete</a>
+                                    <a class="btn btn-warning" href="Controlador?menu=Cliente&accion=Editar&idCli=${cl.getIdCli()}">Editar</a> 
+                                    <a class="btn btn-danger" href="Controlador?menu=Cliente&accion=Delete&idCli=${cl.getIdCli()}">Delete</a>
 
 
                                 </td>

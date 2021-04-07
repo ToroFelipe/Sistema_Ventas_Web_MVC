@@ -5,10 +5,11 @@
  */
 package Controlador;
 
+import Modelo.Cliente;
+import Modelo.ClienteDAO;
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,16 +25,10 @@ public class Controlador extends HttpServlet {
     Empleado em = new Empleado();
     EmpleadoDAO edao = new EmpleadoDAO();
     int ide;
+    Cliente cl = new Cliente();
+    ClienteDAO cdao = new ClienteDAO();
+    int ide2;
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String menu = request.getParameter("menu");
@@ -98,7 +93,57 @@ public class Controlador extends HttpServlet {
 
             request.getRequestDispatcher("Empleado.jsp").forward(request, response);
         }
-        if (menu.equals("Clientes")) {
+        if (menu.equals("Cliente")) {
+            switch (accion) {
+                case "Listar":
+                    List lista = cdao.listar();
+                    request.setAttribute("clientes", lista);
+                    break;
+                case "Agregar":
+                    String dniCli = request.getParameter("txtDniCli");
+                    String nomCli = request.getParameter("txtNombresCli");
+                    String dirCli = request.getParameter("txtDirCli");
+                    String estCli = request.getParameter("txtEstadoCli");
+
+                    cl.setDniCli(dniCli);
+                    cl.setNomCli(nomCli);
+                    cl.setDirCli(dirCli);
+                    cl.setEstadoCli(estCli);
+                    cdao.agregar(cl);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+                    break;
+                case "Editar":
+                    ide2 = Integer.parseInt(request.getParameter("idCli"));
+                    Cliente c = cdao.listarId(ide2);
+                    request.setAttribute("cliente", c);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+
+                    break;
+                case "Actualizar":
+                    String dniCli1 = request.getParameter("txtDniCli");
+                    String nomCli1 = request.getParameter("txtNombresCli");
+                    String dirCli1 = request.getParameter("txtDirCli");
+                    String estCli1 = request.getParameter("txtEstadoCli");
+                    cl.setDniCli(dniCli1);
+                    cl.setNomCli(nomCli1);
+                    cl.setDirCli(dirCli1);
+                    cl.setEstadoCli(estCli1);
+                    cl.setIdCli(ide2);
+                    cdao.actualizar(cl);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+
+                    break;
+                case "Delete":
+                    ide2 = Integer.parseInt(request.getParameter("idCli"));
+                    cdao.delete(ide2);
+                    request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+
+                    break;
+                default:
+                    throw new AssertionError();
+
+            }
+
             request.getRequestDispatcher("Clientes.jsp").forward(request, response);
         }
         if (menu.equals("Producto")) {
