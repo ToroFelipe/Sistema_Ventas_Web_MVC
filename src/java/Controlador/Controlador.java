@@ -9,6 +9,8 @@ import Modelo.Cliente;
 import Modelo.ClienteDAO;
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
+import Modelo.Producto;
+import Modelo.ProductoDAO;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -28,6 +30,9 @@ public class Controlador extends HttpServlet {
     Cliente cl = new Cliente();
     ClienteDAO cdao = new ClienteDAO();
     int ide2;
+    Producto pr = new Producto();
+    ProductoDAO pdao = new ProductoDAO();
+    int ide3;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -147,6 +152,55 @@ public class Controlador extends HttpServlet {
             request.getRequestDispatcher("Clientes.jsp").forward(request, response);
         }
         if (menu.equals("Producto")) {
+            switch (accion) {
+                case "Listar":
+                    List lista = pdao.listar();
+                    request.setAttribute("productos", lista);
+                    break;
+                case "Agregar":
+                    String nomPro = request.getParameter("txtNomPro");
+                    String prePro = request.getParameter("txtPrePro");
+                    String stoPro = request.getParameter("txtStoPro");
+                    String estPro = request.getParameter("txtEstadoPro");
+
+                    pr.setNomPro(nomPro);
+                    pr.setPrePro(Integer.parseInt(prePro));
+                    pr.setPrePro(Integer.parseInt(stoPro));
+                    pr.setEstadoPro(estPro);
+                    pdao.agregar(pr);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+                    break;
+                case "Editar":
+                    ide3 = Integer.parseInt(request.getParameter("idPro"));
+                    Producto p = pdao.listarId(ide3);
+                    request.setAttribute("producto", p);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+
+                    break;
+                case "Actualizar":
+                    String nomPro1 = request.getParameter("txtNomPro");
+                    String prePro1 = request.getParameter("txtPrePro");
+                    String stoPro1 = request.getParameter("txtStoPro");
+                    String estPro1 = request.getParameter("txtEstadoPro");
+                    pr.setNomPro(nomPro1);
+                    pr.setPrePro(Integer.parseInt(prePro1));
+                    pr.setPrePro(Integer.parseInt(stoPro1));
+                    pr.setEstadoPro(estPro1);
+                    pdao.actualizar(pr);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+
+                    break;
+                case "Delete":
+                    ide3 = Integer.parseInt(request.getParameter("idPro"));
+                    pdao.delete(ide3);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+
+                    break;
+                default:
+                    throw new AssertionError();
+
+            }
+
             request.getRequestDispatcher("Producto.jsp").forward(request, response);
         }
         if (menu.equals("NuevaVenta")) {

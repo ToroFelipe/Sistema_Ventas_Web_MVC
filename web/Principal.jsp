@@ -24,7 +24,7 @@
                             <a style="margin-left:10px; border:none" class="btn btn-outline-light" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?menu=Producto" target="myFrame">producto</a>
+                            <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?menu=Producto&accion=Listar" target="myFrame">producto</a>
                         </li>
                         <li class="nav-item">
                             <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
