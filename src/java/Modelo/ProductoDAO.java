@@ -36,7 +36,7 @@ public class ProductoDAO {
                 Producto pr = new Producto();
                 pr.setIdPro(rs.getInt(1));
                 pr.setNomPro(rs.getString(2));
-                pr.setPrePro(rs.getInt(3));
+                pr.setPrePro(rs.getDouble(3));
                 pr.setStoPro(rs.getInt(4));
                 pr.setEstadoPro(rs.getString(5));
 
@@ -54,7 +54,7 @@ public class ProductoDAO {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, pr.getNomPro());
-            ps.setInt(2, pr.getPrePro());
+            ps.setDouble(2, pr.getPrePro());
             ps.setInt(3, pr.getStoPro());
             ps.setString(4, pr.getEstadoPro());
 
@@ -67,14 +67,15 @@ public class ProductoDAO {
 
     public Producto listarId(int idPro) {
         Producto pro = new Producto();
-        String sql = "select * from producto where IdProducto=" + idPro;
+        String sql = "select * from producto where IdProducto="+idPro;
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
+                pro.setIdPro(rs.getInt(1));
                 pro.setNomPro(rs.getString(2));
-                pro.setPrePro(rs.getInt(3));
+                pro.setPrePro(rs.getDouble(3));
                 pro.setStoPro(rs.getInt(4));
                 pro.setEstadoPro(rs.getString(5));
 
@@ -90,11 +91,12 @@ public class ProductoDAO {
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
-            ps.setString(1, pr.getNomPro());
-            ps.setInt(2, pr.getPrePro());
-            ps.setInt(3, pr.getStoPro());
-            ps.setString(4, pr.getEstadoPro());
-            ps.setInt(5, pr.getIdPro());
+             ps.setInt(1, pr.getIdPro());
+            ps.setString(2, pr.getNomPro());
+            ps.setDouble(3, pr.getPrePro());
+            ps.setInt(4, pr.getStoPro());
+            ps.setString(5, pr.getEstadoPro());
+          
             ps.executeUpdate();
 
         } catch (Exception e) {

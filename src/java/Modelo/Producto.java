@@ -12,21 +12,19 @@ package Modelo;
 public class Producto {
     int idPro;
     String nomPro;
-    int prePro;
+    double prePro;
     int stoPro;
     String estadoPro;
 
     public Producto() {
     }
-
-    public Producto(int idPro, String nomPro, int prePro, int stoPro, String estadoPro) {
+    public Producto(int idPro, String nomPro, double prePro, int stoPro, String estadoPro) {
         this.idPro = idPro;
         this.nomPro = nomPro;
         this.prePro = prePro;
         this.stoPro = stoPro;
         this.estadoPro = estadoPro;
     }
-
     public int getIdPro() {
         return idPro;
     }
@@ -43,11 +41,11 @@ public class Producto {
         this.nomPro = nomPro;
     }
 
-    public int getPrePro() {
+    public double getPrePro() {
         return prePro;
     }
 
-    public void setPrePro(int prePro) {
+    public void setPrePro(double prePro) {
         this.prePro = prePro;
     }
 
@@ -63,14 +61,11 @@ public class Producto {
         return estadoPro;
     }
 
-    public void setEstadoPro(String EstadoPro) {
-        this.estadoPro = EstadoPro;
+    public void setEstadoPro(String estadoPro) {
+        this.estadoPro = estadoPro;
     }
+
     
-    
-    
-    
-    
-    
+
     
 }

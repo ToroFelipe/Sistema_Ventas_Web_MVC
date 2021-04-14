@@ -21,14 +21,13 @@
                             <label>Nombre</label>
                             <input type="text" value="${Producto.getNomPro()}"  name="txtNomPro" class="form-control">
                         </div>
-
                         <div class="form-group">
                             <label>Precio</label>
                             <input type="text" value="${Producto.getPrePro()}" name="txtPrePro" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
-                            <input type="text" value="${Producto.getStoPro()}" name="txtStoPro" class="form-control">
+                            <input type="number" value="${Producto.getStoPro()}" name="txtStoPro" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Estado</label>

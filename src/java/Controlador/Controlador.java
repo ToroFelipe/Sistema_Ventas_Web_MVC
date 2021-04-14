@@ -159,13 +159,13 @@ public class Controlador extends HttpServlet {
                     break;
                 case "Agregar":
                     String nomPro = request.getParameter("txtNomPro");
-                    String prePro = request.getParameter("txtPrePro");
-                    String stoPro = request.getParameter("txtStoPro");
+                    double prePro = Double.parseDouble(request.getParameter("txtPrePro"));
+                    int stoPro = Integer.parseInt(request.getParameter("txtStoPro"));
                     String estPro = request.getParameter("txtEstadoPro");
 
                     pr.setNomPro(nomPro);
-                    pr.setPrePro(Integer.parseInt(prePro));
-                    pr.setPrePro(Integer.parseInt(stoPro));
+                    pr.setPrePro(prePro);
+                    pr.setStoPro(stoPro);
                     pr.setEstadoPro(estPro);
                     pdao.agregar(pr);
                     request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
@@ -179,13 +179,14 @@ public class Controlador extends HttpServlet {
                     break;
                 case "Actualizar":
                     String nomPro1 = request.getParameter("txtNomPro");
-                    String prePro1 = request.getParameter("txtPrePro");
-                    String stoPro1 = request.getParameter("txtStoPro");
+                    double prePro1 = Double.parseDouble(request.getParameter("txtPrePro"));
+                    int stoPro1 = Integer.parseInt(request.getParameter("txtStoPro"));
                     String estPro1 = request.getParameter("txtEstadoPro");
                     pr.setNomPro(nomPro1);
-                    pr.setPrePro(Integer.parseInt(prePro1));
-                    pr.setPrePro(Integer.parseInt(stoPro1));
+                    pr.setPrePro(prePro1);
+                    pr.setStoPro(stoPro1);
                     pr.setEstadoPro(estPro1);
+                    pr.setIdPro(ide3);
                     pdao.actualizar(pr);
                     request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
 
