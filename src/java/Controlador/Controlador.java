@@ -173,7 +173,7 @@ public class Controlador extends HttpServlet {
                 case "Editar":
                     ide3 = Integer.parseInt(request.getParameter("idPro"));
                     Producto p = pdao.listarId(ide3);
-                    request.setAttribute("producto", p);
+                    request.setAttribute("Producto", p);
                     request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
 
                     break;

@@ -66,36 +66,38 @@ public class ProductoDAO {
     }
 
     public Producto listarId(int idPro) {
-        Producto pro = new Producto();
-        String sql = "select * from producto where IdProducto="+idPro;
+        Producto pro1 = new Producto();
+        String sql = "select * from producto where IdProducto=" + idPro;
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                pro.setIdPro(rs.getInt(1));
-                pro.setNomPro(rs.getString(2));
-                pro.setPrePro(rs.getDouble(3));
-                pro.setStoPro(rs.getInt(4));
-                pro.setEstadoPro(rs.getString(5));
+           
+                pro1.setNomPro(rs.getString(2));
+                pro1.setPrePro(rs.getDouble(3));
+                pro1.setStoPro(rs.getInt(4));
+                pro1.setEstadoPro(rs.getString(5));
 
             }
         } catch (Exception e) {
         }
-        return pro;
+        return pro1;
 
     }
+
 
     public int actualizar(Producto pr) {
         String sql = "update producto set Nombres=?,Precio=?,Stock=?,Estado=? where IdProducto=?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
-             ps.setInt(1, pr.getIdPro());
-            ps.setString(2, pr.getNomPro());
-            ps.setDouble(3, pr.getPrePro());
-            ps.setInt(4, pr.getStoPro());
-            ps.setString(5, pr.getEstadoPro());
+             
+            ps.setString(1, pr.getNomPro());
+            ps.setDouble(2, pr.getPrePro());
+            ps.setInt(3, pr.getStoPro());
+            ps.setString(4, pr.getEstadoPro());
+            ps.setInt(5, pr.getIdPro());
           
             ps.executeUpdate();
 

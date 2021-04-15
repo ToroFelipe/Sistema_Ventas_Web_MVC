@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
-                            <input type="number" value="${Producto.getStoPro()}" name="txtStoPro" class="form-control">
+                            <input type="text" value="${Producto.getStoPro()}" name="txtStoPro" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Estado</label>
